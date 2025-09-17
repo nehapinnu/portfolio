@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neha Pinnu — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Neha Pinnu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Projects</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="extras.html">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+<section class="hero">
+<div class="hero-left">
+<!-- <p>All About...</p> -->
+<h2 class="hero-name">Neha Pinnu</h2>
+<p class="hero-desc">I enjoy turning ideas into meaningful digital experiences. With a background in computer science and a foundation in UX, I love exploring how technology and design can work together to create products that feel intuitive and inspiring to use.</p>
+<div class="cta-row">
+<a class="btn" href="link/Neha_Pinnu_Resume_2025.pdf" download>Download Resume</a>
+<a class="btn secondary" href="index.html#contact">Contact</a>
+</div>
+</div>
+<img src="assets/img/neha_venice.jpeg" alt="Photo of Neha in Venice" class="hero-img">
+</section>
+
+    <section id="work" aria-label="Selected work">
+      <h2 class="section-title">Technical Projects</h2>
+      <!-- <p class="section-note">Content loads from <code>assets/data/projects.json</code>. If opened directly from Finder/Explorer, the inline fallback below will be used.</p> -->
+      <div id="projects" class="grid" role="list"></div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="cta-row">
+        <a class="btn" href="mailto:npinnu@umich.edu">npinnu@umich.edu</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/neha-pinnu-83731920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div>© <span id="year"></span> Neha Pinnu</div>
+      <div class="social">
+        <a href="mailto:npinnu@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/neha-pinnu-83731920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INLINE FALLBACK: only used when fetch to assets/data/projects.json fails (e.g., opened as file://) -->
+  <script id="projects-data" type="application/json">[
+    {"title":"Fit Feed","tag":"Mobile App","blurb":"Workout tracking app with curated daily workouts and session timers.","link":"#","thumb":"assets/img/fit_feed.png"},
+    {"title":"Power Outages","tag":"Data Viz","blurb":"Interactive visual analysis of outage impact versus climate and economic variables.","link":"#","thumb":"assets/img/power_outages.png"},
+    {"title":"Class Page","tag":"Web Design","blurb":"Personal site built with HTML/CSS to showcase interests, fun facts, and photos.","link":"#","thumb":"assets/img/class_page.png"}
+  ]</script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "WanderHub",
+    "tag": "Mobile App",
+    "blurb": "All-in-one solution for personalized travel that lets you navigate seamlessly, access curated recommendations, and recognize landmarks",
+    "link": "#",
+    "thumb": "assets/img/wanderhub.png"
+  },
+  {
+    "title": "Fit Feed",
+    "tag": "Mobile App",
+    "blurb": "Online Fitness Companionship and scheduling platform",
+    "link": "#",
+    "thumb": "assets/img/fit_feed.png"
+  },
+  {
+    "title": "Power Outages",
+    "tag": "Data Visualization",
+    "blurb": "Interactive visual analysis of power outage impact versus climate and economic variables",
+    "link": "#",
+    "thumb": "assets/img/power_outages.png"
+  }
+]
