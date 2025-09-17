@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WanderHub — Mobile App</title>
+
+  <!-- Your existing site fonts + stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page-specific styles (scoped to .case) -->
+  <style>
+    :root{
+      --sage:#83a292;
+      --rose:#e97576;
+      --ink:#1A1A1A;
+      --muted:#5a5a5a;
+      --card:#fff;
+      --ring:rgba(0,0,0,.08);
+    }
+    .case { max-width: 1040px; margin: 0 auto; padding: 60px 20px 100px; }
+    .case h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.05; margin: 18px 0 22px; }
+    .case .lede { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); max-width: 860px; }
+
+    /* meta grid under title */
+    .meta {
+      margin: 28px 0 36px;
+      padding-top: 22px;
+      border-top: 1px solid var(--ring);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+    .meta h4 { margin: 0 0 8px; font-size: 14px; color: var(--rose); letter-spacing:.2px }
+    .meta p  { margin: 0; color: var(--ink) }
+
+    /* hero media */
+    .hero-media {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--ring);
+      box-shadow: 0 8px 26px rgba(0,0,0,.06);
+      margin: 8px 0 42px;
+    }
+    .hero-media img, .hero-media video { display:block; width:100%; height:auto; }
+
+    /* section blocks */
+    .block { padding: 28px 0; }
+    .block h2 { margin: 0 0 14px; font-size: clamp(22px, 3.6vw, 28px); color: var(--rose); }
+    .block p  { margin: 10px 0; }
+
+    /* callout */
+    .callout {
+      border: 1px solid rgba(233,117,118,.2);
+      background: #fdeff0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      color: #623e46;
+      margin: 14px 0 0;
+      box-shadow: 0 2px 12px rgba(233,117,118,.1);
+    }
+
+    /* two-column text + image rows */
+    .row {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: start;
+      margin: 18px 0 26px;
+    }
+    .row.reverse { grid-template-columns: .9fr 1.1fr; }
+    .row .media-card {
+      border: 1px solid var(--ring);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+    }
+    .row .media-card img { display:block; width:100%; height:auto; }
+
+    /* list columns */
+    .cols-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 32px;
+    }
+    .rule { height:1px; background: var(--ring); margin: 28px 0; }
+
+    /* link buttons */
+    .btn-row { display:flex; gap:14px; flex-wrap: wrap; margin-top: 10px; }
+    .pill {
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 16px;
+      background:#fff; border:1px solid var(--ring);
+      border-radius: 999px; font-weight:700; color: var(--ink);
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+    .pill .star { color: #f3b21c; }
+
+    /* takeaways */
+    .takeaway { margin-top: 6px; }
+    .takeaway h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
+    .takeaway ul { margin: 6px 0 14px 18px; }
+
+    /* responsive */
+    @media (max-width: 900px){
+      .meta { grid-template-columns: 1fr 1fr; }
+      .row, .row.reverse { grid-template-columns: 1fr; }
+      .cols-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- site nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Neha Pinnu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="extras.html">Interests</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case">
+    <!-- Title + sub-lede -->
+    <h1>WanderHub: Tackling Over-Tourism with<br/>Sustainable, Human-Centered Connections</h1>
+    <p class="lede">
+      A collaborative travel platform that helps travelers connect with locals,
+      surface respectful, off-the-beaten-path experiences, and encourage more conscious tourism.
+    </p>
+
+    <!-- Meta grid -->
+    <section class="meta">
+      <div>
+        <h4>Timeline</h4>
+        <p>January 2024 — April 2024</p>
+        <p>University of Michigan</p>
+      </div>
+      <div>
+        <h4>Team</h4>
+        <p>7 teammates</p>
+      </div>
+      <div>
+        <h4>Role</h4>
+        <p>Mobile Application Development, UX/UI Design, User Research, Visual Identity, PM</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <p>Figma, Swift, Python</p>
+      </div>
+    </section>
+
+<!-- Big hero media -->
+<div class="hero-media">
+  <video controls playsinline>
+    <source src="assets/img/493_final_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+    <!-- Context -->
+    <section class="block">
+      <h2>Context</h2>
+      <p>
+        Modern travel apps prioritize scale and popularity, which often funnels people toward the
+        same crowded spots and misses cultural context. WanderHub asks: what if a travel product
+        centered respectful exchange between locals and visitors—and rewarded discovery beyond the
+        algorithmic “top 10”?
+      </p>
+      <div class="callout">
+        ⭐ <strong>Design prompt:</strong> What if the next travel app didn’t just show you where to go—but
+        helped you understand how to go responsibly?
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- Research & Insights -->
+    <section class="block">
+      <h2>Research & Insights</h2>
+      <div class="cols-2">
+        <div>
+          <h3>Competitive Analysis</h3>
+          <p>We audited leading travel platforms and identified gaps in:</p>
+          <ul>
+            <li>Direct community involvement and local context</li>
+            <li>Transparency about tourism impact and etiquette</li>
+            <li>Tools that help travelers discover beyond viral lists</li>
+          </ul>
+        </div>
+        <div>
+          <h3>User Interviews & Affinity Mapping</h3>
+          <ul>
+            <li>Interest in authentic experiences with cultural awareness</li>
+            <li>Need to balance spontaneity with safety & respect</li>
+            <li>Locals seek tools to share vetted tips without overexposure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personas -->
+    <section class="block">
+      <h2>Personas & Scenarios</h2>
+      <div class="cols-2">
+        <div>
+          <h3>John Apple — Adventurous Traveler</h3>
+          <p>Wants spontaneous, authentic discovery without extensive planning.</p>
+          <ul>
+            <li>Frustrated by tourist traps and repetitive lists</li>
+            <li>Seeks vetted, respectful recommendations</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Clairo Orange — Community-minded Local</h3>
+          <p>Passionate about her city; cautious about over-tourism and cultural missteps.</p>
+          <ul>
+            <li>Wants to share tips with context and boundaries</li>
+            <li>Seeks tools that encourage etiquette and care</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design decisions (3 key moments) -->
+    <section class="block">
+      <h2>Design Decisions</h2>
+
+      <div class="row">
+        <div>
+          <h3>Explore — Local memos & hidden gems</h3>
+          <p>
+            People can add personal memos to places, creating context-rich discovery.
+            Lists can be saved, remixed, and followed to uncover lesser-known spots.
+          </p>
+        </div>
+        <div class="media-card">
+          <img src="assets/img/wanderhub.png" alt="Explore screens" />
+        </div>
+      </div>
+
+      <div class="row reverse">
+        <div class="media-card">
+          <img src="assets/img/wanderhub.png" alt="Profile / messaging screens" />
+        </div>
+        <div>
+          <h3>Connect — Messaging for locals & travelers</h3>
+          <p>
+            Users can follow and chat with locals to gain firsthand insight and etiquette tips,
+            encouraging meaningful connections and safer exploration.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <h3>Learn — Etiquette & cultural context</h3>
+          <p>
+            Lightweight guides and community posts provide norms, do’s/don’ts, and cultural
+            expectations—so travelers can show up respectfully.
+          </p>
+        </div>
+        <div class="media-card">
+          <img src="assets/img/wanderhub.png" alt="Guides & learning moments" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Management -->
+    <section class="block">
+      <h2>Product Management</h2>
+      <div class="cols-2">
+        <div>
+          <h3>Core Features (Phase 1)</h3>
+          <ul>
+            <li>Profiles for locals & travelers</li>
+            <li>Real-time messaging with translation</li>
+            <li>“Favorite Places” lists curated by locals</li>
+          </ul>
+          <h3>KPIs</h3>
+          <ul>
+            <li>Lists created & saved per user</li>
+            <li>Creation completion rate</li>
+            <li>Time spent creating lists</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Future Features</h3>
+          <ul>
+            <li>Cultural etiquette toolkits</li>
+            <li>Tips & review system with context</li>
+            <li>Local expert recognition</li>
+          </ul>
+          <h3>Feedback Loops</h3>
+          <ul>
+            <li>In-app surveys & analytics</li>
+            <li>Continuous user research</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results + Links -->
+    <section class="block">
+      <h2>Results</h2>
+      <ul>
+        <li>Improved usability scores in playtesting across personas</li>
+        <li>Stakeholder excitement around ethical positioning</li>
+        <li>Clear roadmap toward responsible launch practices</li>
+      </ul>
+
+      <h3 style="margin-top:18px;color:#b45c71">View my final project</h3>
+      <div class="btn-row">
+        <a class="pill" href="#" target="_blank" rel="noreferrer"><span class="star">★</span> Mobile Prototype</a>
+        <a class="pill" href="#" target="_blank" rel="noreferrer"><span class="star">★</span> Full PRD</a>
+        <a class="pill" href="#" target="_blank" rel="noreferrer"><span class="star">★</span> Full Presentation</a>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- Takeaways -->
+    <section class="block">
+      <h2>Takeaways</h2>
+      <div class="cols-2">
+        <div class="takeaway">
+          <h3>What I learned</h3>
+          <ul>
+            <li>Co-design with local communities is foundational.</li>
+            <li>Balancing empathy and feasibility is a skill worth practicing.</li>
+          </ul>
+        </div>
+        <div class="takeaway">
+          <h3>What I’d do differently</h3>
+          <ul>
+            <li>Test earlier for visual identity resonance.</li>
+            <li>Prioritize accessibility audits from day one.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:18px">
+        ⭐ WanderHub isn’t just a travel app—it’s a mindset shift away from mass
+        consumption toward conscious connection. Guiding it from idea to roadmap
+        was one of my most meaningful experiences so far.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div>© <span id="year"></span> Neha Pinnu</div>
+      <div class="social">
+        <a href="mailto:npinnu@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/neha-pinnu-83731920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // keep your footer year in sync
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

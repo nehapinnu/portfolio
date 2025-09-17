@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WanderHub — Mobile App</title>
+
+  <!-- Your existing site fonts + stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page-specific styles (scoped to .case) -->
+  <style>
+    :root{
+      --sage:#83a292;
+      --rose:#e97576;
+      --ink:#1A1A1A;
+      --muted:#5a5a5a;
+      --card:#fff;
+      --ring:rgba(0,0,0,.08);
+    }
+    .case { max-width: 1040px; margin: 0 auto; padding: 60px 20px 100px; }
+    .case h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.05; margin: 18px 0 22px; }
+    .case .lede { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); max-width: 860px; }
+
+    /* meta grid under title */
+    .meta {
+      margin: 28px 0 36px;
+      padding-top: 22px;
+      border-top: 1px solid var(--ring);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+    .meta h4 { margin: 0 0 8px; font-size: 14px; color: var(--rose); letter-spacing:.2px }
+    .meta p  { margin: 0; color: var(--ink) }
+
+    /* hero media */
+    .hero-media {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--ring);
+      box-shadow: 0 8px 26px rgba(0,0,0,.06);
+      margin: 8px 0 42px;
+    }
+    .hero-media img, .hero-media video { display:block; width:100%; height:auto; }
+
+    /* section blocks */
+    .block { padding: 28px 0; }
+    .block h2 { margin: 0 0 14px; font-size: clamp(22px, 3.6vw, 28px); color: var(--rose); }
+    .block p  { margin: 10px 0; }
+
+    /* callout */
+    .callout {
+      border: 1px solid rgba(233,117,118,.2);
+      background: #fdeff0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      color: #623e46;
+      margin: 14px 0 0;
+      box-shadow: 0 2px 12px rgba(233,117,118,.1);
+    }
+
+    /* two-column text + image rows */
+    .row {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: start;
+      margin: 18px 0 26px;
+    }
+    .row.reverse { grid-template-columns: .9fr 1.1fr; }
+    .row .media-card {
+      border: 1px solid var(--ring);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
+    }
+    .row .media-card img { display:block; width:100%; height:auto; }
+
+    /* list columns */
+    .cols-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 32px;
+    }
+    .rule { height:1px; background: var(--ring); margin: 28px 0; }
+
+    /* link buttons */
+    .btn-row { display:flex; gap:14px; flex-wrap: wrap; margin-top: 10px; }
+    .pill {
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 12px 16px;
+      background:#fff; border:1px solid var(--ring);
+      border-radius: 999px; font-weight:700; color: var(--ink);
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+    .pill .star { color: #f3b21c; }
+
+    /* takeaways */
+    .takeaway { margin-top: 6px; }
+    .takeaway h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
+    .takeaway ul { margin: 6px 0 14px 18px; }
+
+    /* responsive */
+    @media (max-width: 900px){
+      .meta { grid-template-columns: 1fr 1fr; }
+      .row, .row.reverse { grid-template-columns: 1fr; }
+      .cols-2 { grid-template-columns: 1fr; }
+    }
+
+    .slide-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.slide-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-card {
+  max-width: 800px;     /* keep it aligned with your text width */
+  margin: 0 auto 26px;  /* center it and add spacing below */
+  border: 1px solid var(--ring);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+}
+.media-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.media-left {
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+.media-card iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  display: block;
+}
+
+.row .media-card{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.row,
+.row.reverse{
+  grid-template-columns: 1fr 1fr; /* equal columns */
+}
+
+.improve-title{
+  font-size: 22px;
+  color:#e97576;
+}
+
+/* Product Dev layout */
+.dev-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two side-by-side columns */
+  gap: 24px;
+  align-items: start;
+}
+.dev-card{ /* optional: just spacing */
+  /* padding: 4px 0; */
+}
+.dev-span-2{
+  grid-column: 1 / -1;            /* full width row */
+}
+
+/* Stack on mobile */
+@media (max-width: 900px){
+  .dev-grid{ grid-template-columns: 1fr; }
+}
+
+.db-img {
+  display: block;
+  width: 100%;
+  max-width: 1000px; /* optional cap, matches your .case width */
+  margin: 28px auto; /* centers it and adds vertical spacing */
+  border: 1px solid var(--ring);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+
+
+  </style>
+</head>
+<body>
+  <!-- site nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Neha Pinnu</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="extras.html">Interests</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case">
+    <!-- Title + sub-lede -->
+    <h1>WanderHub: Tackling Over-Tourism with<br/>Sustainable, Human-Centered Connections</h1>
+    <p class="lede">
+      A collaborative travel platform that helps travelers connect with locals,
+      surface respectful, off-the-beaten-path experiences, and encourage more conscious tourism.
+    </p>
+    <div class="cta-row">
+        <a class="btn" href="https://github.com/vmahtab/Swifties/wiki" download>Github</a>
+    </div>
+
+    <!-- Meta grid -->
+    <section class="meta">
+      <div>
+        <h4>Timeline</h4>
+        <p>January 2024 — April 2024</p>
+        <p>University of Michigan</p>
+      </div>
+      <div>
+        <h4>Team</h4>
+        <p>7 teammates</p>
+      </div>
+      <div>
+        <h4>Role</h4>
+        <p>Mobile Application Development, UX/UI Design, User Research, Visual Identity, PM</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <p>Figma, Swift, Python</p>
+      </div>
+    </section>
+
+<!-- Big hero media -->
+<div class="hero-media">
+  <iframe 
+    width="100%" 
+    height="500" 
+    src="https://www.youtube.com/embed/m4QQcauVWXo" 
+    title="WanderHub Demo Video"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+
+    <!-- Context -->
+    <section class="block">
+      <h2>Context</h2>
+      <p>
+        Modern travel apps prioritize scale and popularity, which often funnels people toward the
+        same crowded spots and misses cultural context. WanderHub asks: what if a travel product
+        centered around a users specific interests—and rewarded discovery beyond the
+        algorithmic “top 10”?
+      </p>
+      <div class="callout">
+        <strong>Design:</strong> An all in one travel platform that provides landmark recognition, navigation, text to speech, customized travel destinations, and dynamic recommendations based on user ratings.
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- Research & Insights -->
+    <section class="block">
+      <h2>Research & Insights</h2>
+      <div class="cols-2">
+        <div>
+          <h3>Competitive Analysis</h3>
+          <p>We audited leading travel platforms and identified gaps in:</p>
+          <ul>
+            <li><strong>Google Search: </strong>Can't tailor to the user profile, hard to compile information, no community aspect</li>
+            <li><strong>IOS Visual Look Up: </strong>Works only online, privacy concerns, limited accuracy, only available in certain regions and locations, no text-to-speech</li>
+            <li><strong>Tour Guide: </strong>Volatile experiences, finding group tours, cost, difficult logistics for booking, less tailorable</li>
+            <li><strong>Travel Guidebook: </strong>Outsourced research, limited and outdated, cost and weight, finding directions</li>
+            <li><strong>Wander Log: </strong>No social media exploration, aggressive monetization, limited description on sights (no follow-up, directed question possibility</li>
+          </ul>
+        </div>
+        <div>
+          <h3>User Interviews & Affinity Mapping</h3>
+          <p>We conducted user interviews on potential avenues we could take our application, by focusing on 3 main ideas: Needs, Wants, and Pain Points.</p>
+          <ul>
+            <li><strong>Needs: </strong>Travel safely in a new place, communicate with group, making an itinerary</li>
+            <li><strong>Wants: </strong>Learn about history, culture, and food, integrate information from trustworthy sources (Google, Yelp, and Social Media)</li>
+            <li><strong>Pain Points: </strong>Planning logistics of a trip, time needed to plan a trip, finding transportation in a new place, group travel coordination</li>
+          </ul>
+
+        <p class="affinity-link">
+    🔗      <a href="https://app.mural.co/t/universityofmichigan9626/m/universityofmichigan9626/1706376004559/df0d31f2a74b1fd1f162c074511be15b9b3f7f87" target="_blank" rel="noreferrer">
+            View full Affinity Diagram on Mural
+            </a>
+        </p>
+        </div>
+      </div>
+   </section>
+
+    <!-- Personas -->
+    <section class="block">
+      <h2>Personas & Scenarios</h2>
+      <div class="cols-2">
+        <div>
+          <h3>Working John - New Traveler</h3>
+          <p>50 years old man: he hasn't taken a vacation in 10 years due to work</p>
+          <ul>
+            <li>Doesn't know what sites to see or what to plan</li>
+            <li>Intuative to use as he is older and doesn't want to learn something complicatied</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Anna Windsor - Travel Enthusiast</h3>
+          <p>Has visited most popular tourist locations, but bad at navigation</p>
+          <ul>
+            <li>Wants unique places to visit</li>
+            <li>Wants to learn information about the landmarks he sees</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQkSfZS4dhCcs7Q2u0t5UFLqzeNG5bXQ1tAy1Jn_H-2dB68ptFBOhvcHAZWU72F0OI279toIGpZu7D_/pubembed?start=false&loop=false&delayms=60000" 
+    frameborder="0" width="960" height="569" 
+    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> 
+    <!-- Design decisions (3 key moments) -->
+    <section class="block">
+      <div>
+        <h2>Design Decisions</h2>
+        <h3>Storymap</h3>
+        <p>We created a plan that consisted of 3 phases of development:</p>
+        <ol>
+          <li><strong>Basic UI and functionality: </strong>basic viewing, searching, information changing, and offline functionality</li>
+          <li><strong>Advanced functionality: </strong>Image recognition, landmark recognition, text to speech tour guide, smart routing and landmark recommendations through GPS, smart assistant with OpenAI API</li>
+          <li><strong>Novel functionality: </strong>Packing all features together for a seamless user experience</li>
+        </ol>
+      </div>
+
+      <div class="media-card media-left">
+          <img src="assets/img/storymap.png" alt="Explore screens" />
+      </div>
+
+  <h3>Initial Design</h3>
+  <div class="row">
+  <div>
+    <p>
+      After conducting user interviews, we created this
+      <a href="https://www.figma.com/design/5GtZbo7oOXv3se1nuIKpTG/WanderHub-UI-UX-flow-map?node-id=62-851&m=dev&t=qFmsHH0nYryiLD1R-1" target="_blank" rel="noreferrer">initial design</a>.
+      From there, we ran usability tests and iterated on the flow and UI. We discovered that:
+    </p>
+    <ol>
+      <li>Users struggled to find the walking map with interesting locations - "Explore Nearby" button</li>
+      <li>Users were confused by the compass icon and had difficulty understanding its significance of finding trips dashboard and edit their trip itineraries</li>
+      <li>Users had trouble understanding how to plan a new trip</li>
+    </ol>
+  </div>
+<div class="media-card">
+  <iframe
+    src="https://www.youtube.com/embed/0PAOdP_Wz5E"
+    title="WanderHub Initial Design"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
+</div>
+</div>
+
+      <div class="row reverse">
+        <div class="media-card">
+          <img src="assets/img/combined_stacked_changes.png" alt="Profile / messaging screens" />
+        </div>
+        <div>
+          <h3>Design Improvements</h3>
+          <ul>
+            <li>Improved discoverability of "Explore Nearby" by changing the button to give the user more context about the action</li>
+            <li>Changed compass icon to represent something that is more intuitively signifies the trip dashboard to the user</li>
+            <li>Made a clearer call to action search bar to improve user understandability</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <h3>Final Design</h3>
+          <p>
+            After incorperating user feedback into our design, we created a finalized UI flow map that we could start developing in Swift and Python.
+          </p>
+        </div>
+        <div class="media-card">
+          <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/5GtZbo7oOXv3se1nuIKpTG/WanderHub-UI-UX-flow-map?node-id=1-4&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Product Management -->
+<section class="block">
+  <h2>Product Development & Deployment</h2>
+
+  <div class="dev-grid">
+    <!-- Row 1: side by side -->
+    <div class="dev-card">
+      <h3>Third Party Tools Used</h3>
+      <ul>
+        <li>Frontend: iOS SDK, MapKit, Alamofire</li>
+        <li>Backend: Djang/Django_Rest, POSTGRESQL, ChatGPT and Whisper APIs, Text to Speech,
+            Google Cloud Vision Client/API, Python-dotenv, GeoPy</li>
+      </ul>
+    </div>
+
+    <div class="dev-card">
+      <h3>KPI's</h3>
+      <ul>
+        <li>Cultural etiquette toolkits</li>
+        <li>Tips &amp; review system with context</li>
+        <li>Local expert recognition</li>
+      </ul>
+    </div>
+
+    <!-- Row 2: full width -->
+    <div class="dev-card dev-span-2">
+      <h3>Frontend</h3>
+      <ul>
+        <li><strong>Landmark Store: </strong>Once a trip is selected, a request is made to the backend to retrieve
+            itinerary landmarks so Map View and Itinerary View display fresh results</li>
+        <li><strong>Text to Speech: </strong>configures the parameters for the voice and sends them to the Google API along with the text to generate audio for the text, which can then be accessed by the audio player that provides playback control</li>
+        <li><strong>Destinations for You: </strong> backend sends list of suggestions upon login. When clicked on, a booking view is autopopulated. Once submitted, backend generates itinerary that's visible in the Upcoming Trips section</li>
+        <li><strong>Upcoming Trips: </strong> Upon trip selection, request is made to retrieve the itinerary and becomes visible. Helps with memory and state mangement of the system whil also preventing issues with having to retrieve too much data in one request: speeding up the process</li>
+        <li><strong>User Preferences & Ratings</strong>User Preferences aren't visible on the frontend to account for users not being fullt aware of their preferences. Recommendation system will update recommendations based on initial interests, landmark raitings, and overall ratings</li>
+        <li><strong>Navigation Logic</strong>The five sections of the app are controlled by the navigation bar that has an Enum variable for each section. Each section also has additional views, so this organization allows for efficiently managing navigation and preventing the navigation Stack from getting too large</li>
+      </ul>
+    </div>
+
+    <!-- Row 3: full width -->
+    <div class="dev-card dev-span-2">
+      <h3>Backend</h3>
+      <ul>
+        <li><strong>Database Schema: </strong>stores all information pertinent to users, landmarks, and itineraries
+        <ul>
+          <li><u>UserProfile</u>: serialized User, location, biography, and UserTags are linked. We selected a thought-out range of interests and create a record for each User that stores their preference weighting for each of these interests</li>
+          <li><u>Landmark</u>: all landmarks we receive through our OpenAI and Google Cloud Vision calls</li>
+          <li><u>VisitedLandmark</u>: stores each Landmark object that a certain User has taken a picture of along with their rating, the image URL, and visit time</li>
+          <li><u>LandmarkIdentification</u>: used as an intermediary table to pass image data to the Vision API</li>
+          <li><u>Itineraries</u>: all of our users' itineraries, with a key for its User, and holds information about the trip</li>
+          <li><u>ItineraryItems</u>: Landmark key, an Itinerary key, and information about the visit day and location</li>
+        </ul>
+        </li>
+        <img src="assets/img/database.png" alt="database setup" class="db-img">
+        <li><strong>User Profiles and Feedback Loops: </strong>
+        When a user creates a profile, their name, username, interesets, and past landmarks they've visted are collected and 
+        sent to a Postgres database. When they initially select their interests, their preference weighting is initialized
+          <ul>
+            <li>When a user takes a photo of a landmark, the identification of the location is recorded in the database and added to the user's activity log</li>
+            <li>A user has the option to rank the landmark after visiting. Once at least 10 landmarks have been rated, user preference weights get updated depending on the average score for landmarks in with a certain tag</li>
+          </ul>
+        </li>
+        <li><strong>Itinerary Creation & Use: </strong>After a user inputs their trip destination and dates, that info, as well as their preferences from their user profile, are passed to a ChatGPT API call to make an itinerary. That itinerary is then sent to the user in the front end, where they can make changes as they see fit. Those changes are stored under the user’s profile in the database. The itinerary can be added to based on the users interests, and the day given
+        <ul>
+          <li>Once the user is traveling, the iOS core location framework is used to get the user’s geolocation, which will be used in another API call to return N closest landmarks. The map will be updated with the newly queried landmarks</li>
+        </ul>
+        </li>
+        <li><strong>Landmark Identification and information: </strong>
+        When a user visits a landmark, they take a photo to identify it. The app then also extracts geolocation information utilizing the iOS core location framework. The picture is sent the picture to the Google Landmark API which responds with a list of potential landmark matches and their coordinates, which are cross-referenced with the geolocation data to confirm the correct landmark identity. The identified landmark's information is then retrieved and sent back to the user
+        <ul>
+          <li>A call is also made to the ChatGPT API, where the user's preferences and the landmark information are sent. ChatGPT generates tailored information about the landmark based on the user's interests and preferences. This information is converted into audio format using a text-to-speech library, and then sent to the frontend</li>
+        </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <!-- <div class="rule"></div> -->
+
+    <!-- Takeaways -->
+    <section class="block">
+      <h2>Takeaways</h2>
+      <div class="cols-2">
+        <div class="takeaway">
+          <h3>What I learned</h3>
+          <ul>
+            <li>Design a full stack mobile application</li>
+            <li>Empathy driven design, content organization, and acessibled are the foundations of a good application</li>
+          </ul>
+        </div>
+        <div class="takeaway">
+          <h3>What I’d do differently</h3>
+          <ul>
+            <li>Continue doing usability testing on final product, so continual improvements can be made</li>
+            <li>Plan time better for longer tasks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+        <!-- Results + Links -->
+    <section class="block">
+      <h2>View Final Application</h2>
+      <div class="btn-row">
+        <a class="pill" href="https://github.com/vmahtab/Swifties" target="_blank" rel="noreferrer"><span class="star">★</span> Github</a>
+        <a class="pill" href="https://www.youtube.com/watch?v=m4QQcauVWXo" target="_blank" rel="noreferrer"><span class="star">★</span> Final Demo</a>
+        <a class="pill" href="link/Final Presenation - WanderHub.pdf" download target="_blank" rel="noreferrer"><span class="star">★</span> Full Presentation</a>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div>© <span id="year"></span> Neha Pinnu</div>
+      <div class="social">
+        <a href="mailto:npinnu@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/neha-pinnu-83731920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // keep your footer year in sync
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
