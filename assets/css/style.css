@@ -70,7 +70,7 @@ section{
   font-size: clamp(30px, 3.2vw, 32px);
   font-weight: 800;
   margin: 0 0 20px 0;
-  color: #83a292;
+  color: #c69c5e;
 }
 
 .hero-desc {
@@ -126,14 +126,14 @@ section{
 }
 
 .btn.contact-btn {
-  color: #e97576;
+  color: #fc3d72;
 }
 
 .section-title {
   /* font-size: clamp(30px, 3.2vw, 32px);
   font-weight: 800;
   margin: 0 0 20px 0; */
-  color: #83a292;
+  color: #c69c5e;
 }
 
 /* Grid + cards */
@@ -325,7 +325,7 @@ footer{
 .about-top .panel h1,
 .about-facts h3,
 .h3 {
-  color: #e97576;
+  color: #fc3d72;
 }
 
 .about-facts h3 {
@@ -335,7 +335,7 @@ footer{
 }
 
 .about_btn {
-  color: #e97576;
+  color: #fc3d72;
 }
 
 /* ===== Interests / Extras page ===== */
