@@ -1,0 +1,473 @@
+:root {
+  --bg: #fafafa;
+  --fg: #1A1A1A;
+  --muted: #5a5a5a;
+  --card: #ffffff;
+  --accent: #d9c49b;
+  --accent-2: #c0a96a;
+  --link: #2d4a6e;
+  --radius: 18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body {
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Top nav */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background: var(--bg);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{font-weight:800;letter-spacing:.2px}
+.nav ul{display:flex;gap:20px;margin:0;padding:0;list-style:none}
+.nav a{color:var(--fg);font-weight:600}
+.nav a.active{color:var(--fg);font-weight:800}
+
+/* Sections */
+section{
+  max-width:1100px;
+  margin:0 auto;
+  padding:80px 20px;
+}
+.section-title{margin:0 0 16px; color: var(--fg);}
+.section-note{margin-top:0;color:var(--muted)}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 0.7fr;
+  gap:60px;
+  align-items:center;
+  padding:120px 20px 80px;
+}
+.hero-left{ max-width:700px; }
+
+.hero-name {
+  font-size: clamp(30px, 3.2vw, 32px);
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: #83a292;
+}
+
+.hero-desc {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 30px 0;
+  max-width: 700px;
+}
+
+.hero-img{
+  border-radius:20px;
+  max-width:320px;
+  height:auto;
+  object-fit:contain;
+}
+
+/* Buttons */
+.cta-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  color:var(--fg);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.btn:hover, .btn.secondary:hover{
+  transform:translateY(-1px);
+  text-decoration:none;
+}
+.btn.secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  color:var(--fg);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.btn.contact-btn {
+  color: #e97576;
+}
+
+.section-title {
+  /* font-size: clamp(30px, 3.2vw, 32px);
+  font-weight: 800;
+  margin: 0 0 20px 0; */
+  color: #83a292;
+}
+
+/* Grid + cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
+}
+.card{
+  grid-column:span 6;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  transition:transform .25s ease;
+}
+.card:hover{transform:translateY(-4px)}
+.thumb{
+  aspect-ratio:16/9;
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  display:block;
+}
+.card-body{padding:16px 18px 18px}
+.tag{
+  display:inline-block;
+  font-size:12px;
+  color:#fff;
+  background:var(--link);
+  padding:4px 8px;
+  border-radius:999px;
+  font-weight:700;
+}
+.card h3{margin:10px 0 6px;color:var(--fg);}
+.card p{margin:0;color:var(--muted)}
+
+/* About panels */
+.about{
+  /* this wrapper just provides section spacing; the row layouts are below */
+  display: block;
+}
+
+/* ── Top row: Image | About text (equal height) ─────────────────────────── */
+.about-top{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr; /* image | text */
+  gap: 32px;
+  align-items: stretch;               /* make both columns equal height */
+  margin-bottom: 40px;
+}
+
+/* Panels look consistent on light theme */
+.about .panel{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;            /* let children flow vertically */
+  flex-direction: column;
+}
+
+/* Photo panel: image fills the card and matches the text-panel height */
+.photo-panel{
+  padding: 0;               /* remove inner padding so image flushes to edges */
+  overflow: hidden;         /* clip image to rounded corners */
+}
+.photo-panel img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* keep proportions; crop if needed */
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* ── Bottom row: Quick facts panel ──────────────────────────────────────── */
+.about-facts{
+  margin-top: 8px;
+  max-width: 100%;
+}
+
+.about ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+/* Optional: ensure both top cards never get too short */
+@media (min-width: 700px){
+  .about-top > .panel { min-height: 420px; }
+}
+
+/* Mobile: stack image above text; facts stay below */
+@media (max-width: 900px){
+  .about-top{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Extras list */
+.list{
+  display:grid;
+  gap:14px
+}
+.list a{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:12px;
+  background:#fff;
+}
+.list a span{color:var(--muted)}
+
+/* Footer */
+footer{
+  max-width:1100px;
+  margin:40px auto 80px;
+  padding:0 20px;
+  color:var(--muted);
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+  align-items:center
+}
+.social{display:flex;gap:16px}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid .card{grid-column:span 12}
+  .about{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+/* --- Work Experience: title left, card right --- */
+/* --- Work Experience layout --- */
+.xp-wrap {
+  display: grid;
+  grid-template-columns: 0.45fr 1.55fr;  /* left title | right card */
+  gap: 32px;
+  align-items: center;  /* ⬅ this vertically centers both columns */
+  margin-top: 24px;
+}
+
+.xp-title {
+  margin: 0;
+  color: #83a292;
+  font-weight: 800;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+  text-align: right; /* optional: aligns closer to the card */
+}
+
+
+.xp-card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius);
+  padding: 24px 24px 20px;   /* tighter bottom padding */
+}
+
+/* compact list spacing (keep your previous xp-row styles if you like) */
+.xp{ margin: 6px 0 0; }
+.xp-row{
+  display:grid;
+  grid-template-columns: minmax(220px,1fr) minmax(380px,2fr);
+  align-items: baseline;
+  column-gap: 28px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.xp-row:first-child{ border-top:0; padding-top:0; }
+.xp-row:last-child{ padding-bottom:0; }
+.xp-company{ font-weight:700; color:var(--fg); }
+.xp-meta{ display:grid; gap:2px; }
+.xp-role{ font-weight:600; color:var(--fg); line-height:1.35; }
+.xp-dates{ font-size:14px; color:var(--muted); }
+
+/* Stack on mobile: title above card */
+@media (max-width: 900px){
+  .xp-wrap{ grid-template-columns: 1fr; }
+}
+
+
+/* Section headings */
+.about-top .panel h1,
+.about-facts h3,
+.h3 {
+  color: #e97576;
+}
+
+.about-facts h3 {
+  font-size: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.about_btn {
+  color: #e97576;
+}
+
+/* ===== Interests / Extras page ===== */
+
+/* Intro band (image left, copy right) */
+.extras-intro{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 20px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.intro-media{ display:flex; justify-content:center; }
+.intro-circle{
+  width: min(560px, 90%);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 6px solid rgba(0,0,0,.15);     /* soft ring like your reference */
+  box-shadow: 0 10px 30px rgba(0,0,0,.07);
+}
+
+.intro-copy p{ margin: 10px 0 0; color: var(--muted); }
+.extras-title{
+  margin: 0 0 12px 0;
+  font-weight: 900;
+  font-size: clamp(28px, 4.2vw, 42px);
+  color: #e26829;                           /* rosy heading like your ref */
+}
+
+/* Section headings */
+.extras-section{
+  max-width: 1100px;
+  margin: 10px auto 44px;
+  padding: 0 20px;
+}
+.extras-heading{
+  margin: 24px 0 16px;
+  font-size: clamp(22px, 3.2vw, 28px);
+  color: #e26829;                            /* sage headers */
+  font-weight: 800;
+}
+
+/* Image grid — airy cards, keeps aspect, responsive columns */
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+.tile{
+  grid-column: span 4;                       /* 3 across on desktop */
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+}
+.tile img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive columns */
+@media (max-width: 1000px){
+  .extras-intro{ grid-template-columns: 1fr; }
+  .intro-media{ order: -1; }
+  .gallery .tile{ grid-column: span 6; }     /* 2 across */
+}
+@media (max-width: 560px){
+  .gallery .tile{ grid-column: span 12; }    /* 1 across */
+}
+
+
+/* ===== Lightbox (gallery modal) ===== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.78);
+  display: none;                 /* toggled with .open */
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 2000;
+  backdrop-filter: blur(2px);
+}
+.lightbox.open{ display: flex; }
+
+.lb-figure{
+  width: min(1100px, 96vw);
+  margin: 0;
+  color: #f1f1f1;
+  text-align: left;
+}
+#lb-img{
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: #111;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  display: block;
+}
+#lb-cap{
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #d6d6d6;
+}
+
+/* Close button */
+.lb-close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.lb-close:hover{ background: rgba(0,0,0,.55); }
+
+/* Prevent page scroll when lightbox is open */
+body.lb-lock{ overflow: hidden; }
