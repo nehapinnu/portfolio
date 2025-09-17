@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Extra — Neha Pinnu</title>
+  <title>Interests — Neha Pinnu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <div class="brand">neha pinnu</div>
+      <div class="brand">Neha Pinnu</div>
       <nav>
         <ul>
           <li><a href="index.html">Projects</a></li>
@@ -24,24 +24,106 @@
     </div>
   </header>
 
+      <!-- Lightbox / modal -->
+    <div id="lb" class="lightbox" aria-hidden="true">
+      <button class="lb-close" aria-label="Close (Esc)">✕</button>
+      <figure class="lb-figure" role="group">
+        <img id="lb-img" alt="">
+        <figcaption id="lb-cap"></figcaption>
+      </figure>
+    </div>
+
+
   <main>
-    <section>
-      <h1>Extra things</h1>
-      <div class="list">
-        <a href="#"><strong>Writing:</strong> On learning in public<span>Draft</span></a>
-        <a href="#"><strong>Photography:</strong> Night flash mini‑set<span>5 shots</span></a>
-        <a href="#"><strong>Art:</strong> Acrylic fruit studies<span>WIP</span></a>
+
+    <!-- Intro band -->
+    <section class="extras-intro">
+      <div class="intro-media">
+        <!-- Use any photo you like here for the circle hero -->
+        <img src="assets/img/pumpkin_neha.jpeg" alt="Neha with a pumpkin at a cider mill" class="intro-circle">
+      </div>
+      <div class="intro-copy">
+        <h1 class="extras-title">What I Love</h1>
+        <p>When I have free time I love to take unique shots, try fun food, and paint. Here’s a snapshot of some of my favorite photos, paintings, and food!</p>
+        <!-- <p>If you're curious about what else I’ve made (with yarn, frosting, or pixels), keep scrolling.</p> -->
       </div>
     </section>
+
+    <!-- Photography -->
+    <section class="extras-section">
+      <h2 class="extras-heading">Photography</h2>
+      <div class="gallery">
+        <!-- jpg/jpeg/png per your filenames -->
+         <figure class="tile"><img src="assets/img/head_hold.jpeg" alt="Young man holding head" 
+          data-caption="Studio photo showcasing unique angles"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/boston.jpeg" alt="Ciao Roma Restaurant at night with snow" 
+          data-caption="Boston Captured at Night"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/guitar_top.jpeg" alt="guitar strings" 
+          data-caption="Showcasing light hitting guitar"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/spiral.png" alt="Spiral staircase with lights" 
+          data-caption="Spiraling in the lights"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/building.png" alt="building with colorful clouds in the windows" 
+          data-caption="watching light through the windows"
+          loading="lazy"></figure>
+          <figure class="tile"><img src="assets/img/glow_tyTy.jpeg" alt="Studio photo with young guy smiling in the light" 
+          data-caption="Studio photo showcasing joy"
+          loading="lazy"></figure>
+      </div>
+    </section>
+
+    <!-- Painting -->
+    <section class="extras-section">
+      <h2 class="extras-heading">Painting</h2>
+      <div class="gallery">
+        <figure class="tile"><img src="assets/img/lemon.jpeg" alt="Lemon painting" 
+          data-caption="Lemon Painting"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/cherry.jpeg" alt="Cherry painting" 
+          data-caption="Cherry Painting"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/dragonfruit.jpeg" alt="Dragonfruit painting" 
+          data-caption="Dragonfruit Painting"
+          loading="lazy"></figure>
+      </div>
+    </section>
+
+    <!-- Food -->
+    <section class="extras-section">
+      <h2 class="extras-heading">Food</h2>
+      <div class="gallery">
+        <figure class="tile"><img src="assets/img/gnocci.jpeg" alt="Gnocci" 
+          data-caption="Gnocci from Tre Dita"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/pizza.jpeg" alt="Pizza" 
+          data-caption="Best Pizza from Italy!"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/chicken_asp.jpeg" alt="Chicken asparagus" 
+          data-caption="Pesto Chicken and Asparagus"
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/lemon_dessert.jpeg" 
+          data-caption="Lemon Cheesecake from Bad Roman"
+          alt="Lemon dessert" loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/mouse_ice_cream.jpeg" alt="Mouse ice cream" 
+          data-caption="Mini Mouse Ice Cream from House of Chimney "
+          loading="lazy"></figure>
+        <figure class="tile"><img src="assets/img/pancakes.jpeg" alt="Pancakes" 
+          data-caption="Best Chocolate Chip Pancakes from The Hen"
+          loading="lazy"></figure>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <div class="foot-grid">
-      <div>© <span id="year"></span> Neha Pinnu • built with care</div>
+      <div>© <span id="year"></span> Neha Pinnu</div>
       <div class="social">
-        <a href="mailto:neha@example.com">Email</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="mailto:npinnu@umich.edu">Email</a>
+        <a href="https://www.linkedin.com/in/neha-pinnu-83731920b/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
