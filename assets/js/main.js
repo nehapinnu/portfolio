@@ -74,3 +74,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 // Footer year if present
 const yearEl = document.getElementById('year');
 if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  (function () {
+    const modal   = document.getElementById('lb');
+    const imgEl   = document.getElementById('lb-img');
+    const capEl   = document.getElementById('lb-cap');
+    const closeEl = modal.querySelector('.lb-close');
+
+    // Every gallery image becomes clickable
+    const imgs = document.querySelectorAll('.gallery .tile img');
+
+    imgs.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLB(img));
+    });
+
+    function openLB(sourceImg) {
+      const src = sourceImg.getAttribute('src');
+      const cap = sourceImg.dataset.caption || sourceImg.getAttribute('alt') || '';
+      imgEl.src = src;
+      imgEl.alt = sourceImg.alt || '';
+      capEl.textContent = cap;
+      modal.classList.add('open');
+      document.body.classList.add('lb-lock');
+      closeEl.focus();
+    }
+
+    function closeLB() {
+      modal.classList.remove('open');
+      document.body.classList.remove('lb-lock');
+      // clear src to stop network/decoding if you want:
+      // imgEl.src = '';
+    }
+
+    // Close interactions
+    closeEl.addEventListener('click', closeLB);
+    modal.addEventListener('click', (e) => {
+      // only close if clicking the backdrop (not the figure/image)
+      if (e.target === modal) closeLB();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeLB();
+    });
+  })();
