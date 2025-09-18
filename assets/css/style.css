@@ -26,7 +26,7 @@ a {
 }
 a:hover { text-decoration: underline; }
 
-/* Top nav */
+/* nav bar styling */
 .nav{
   position:sticky;
   top:0;
@@ -47,7 +47,7 @@ a:hover { text-decoration: underline; }
 .nav a{color:var(--fg);font-weight:600}
 .nav a.active{color:var(--fg);font-weight:800}
 
-/* Sections */
+/* Sections styling*/
 section{
   max-width:1100px;
   margin:0 auto;
@@ -56,7 +56,7 @@ section{
 .section-title{margin:0 0 16px; color: var(--fg);}
 .section-note{margin-top:0;color:var(--muted)}
 
-/* HERO */
+/* main header text on home page */
 .hero{
   display:grid;
   grid-template-columns:1fr 0.7fr;
@@ -130,13 +130,10 @@ section{
 }
 
 .section-title {
-  /* font-size: clamp(30px, 3.2vw, 32px);
-  font-weight: 800;
-  margin: 0 0 20px 0; */
   color: #c69c5e;
 }
 
-/* Grid + cards */
+/* Grid & cards */
 .grid{
   display:grid;
   grid-template-columns:repeat(12,1fr);
@@ -170,45 +167,40 @@ section{
 .card h3{margin:10px 0 6px;color:var(--fg);}
 .card p{margin:0;color:var(--muted)}
 
-/* About panels */
+/* About page panels */
 .about{
-  /* this wrapper just provides section spacing; the row layouts are below */
   display: block;
 }
 
-/* ── Top row: Image | About text (equal height) ─────────────────────────── */
 .about-top{
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr; /* image | text */
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 32px;
-  align-items: stretch;               /* make both columns equal height */
+  align-items: stretch;
   margin-bottom: 40px;
 }
 
-/* Panels look consistent on light theme */
 .about .panel{
   background: #fff;
   border: 1px solid rgba(0,0,0,.08);
   border-radius: var(--radius);
   padding: 22px;
-  display: flex;            /* let children flow vertically */
+  display: flex;
   flex-direction: column;
 }
 
-/* Photo panel: image fills the card and matches the text-panel height */
 .photo-panel{
-  padding: 0;               /* remove inner padding so image flushes to edges */
-  overflow: hidden;         /* clip image to rounded corners */
+  padding: 0;
+  overflow: hidden;
 }
 .photo-panel img{
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* keep proportions; crop if needed */
+  object-fit: cover;
   display: block;
   border-radius: var(--radius);
 }
 
-/* ── Bottom row: Quick facts panel ──────────────────────────────────────── */
 .about-facts{
   margin-top: 8px;
   max-width: 100%;
@@ -220,12 +212,10 @@ section{
   color: var(--muted);
 }
 
-/* Optional: ensure both top cards never get too short */
 @media (min-width: 700px){
   .about-top > .panel { min-height: 420px; }
 }
 
-/* Mobile: stack image above text; facts stay below */
 @media (max-width: 900px){
   .about-top{
     grid-template-columns: 1fr;
@@ -234,7 +224,7 @@ section{
 
 
 
-/* Extras list */
+/* About me page list - not used anymore */
 .list{
   display:grid;
   gap:14px
@@ -250,7 +240,7 @@ section{
 }
 .list a span{color:var(--muted)}
 
-/* Footer */
+/* Footer - On Every Page */
 footer{
   max-width:1100px;
   margin:40px auto 80px;
@@ -265,19 +255,18 @@ footer{
 }
 .social{display:flex;gap:16px}
 
-/* Responsive */
 @media (max-width:900px){
   .grid .card{grid-column:span 12}
   .about{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
 }
-/* --- Work Experience: title left, card right --- */
-/* --- Work Experience layout --- */
+
+/* Work Experience card on About Me Page */
 .xp-wrap {
   display: grid;
-  grid-template-columns: 0.45fr 1.55fr;  /* left title | right card */
+  grid-template-columns: 0.45fr 1.55fr;
   gap: 32px;
-  align-items: center;  /* ⬅ this vertically centers both columns */
+  align-items: center;
   margin-top: 24px;
 }
 
@@ -287,7 +276,7 @@ footer{
   font-weight: 800;
   font-size: clamp(26px, 3vw, 34px);
   line-height: 1.2;
-  text-align: right; /* optional: aligns closer to the card */
+  text-align: right;
 }
 
 
@@ -295,10 +284,9 @@ footer{
   background:#fff;
   border:1px solid rgba(0,0,0,.08);
   border-radius: var(--radius);
-  padding: 24px 24px 20px;   /* tighter bottom padding */
+  padding: 24px 24px 20px;
 }
 
-/* compact list spacing (keep your previous xp-row styles if you like) */
 .xp{ margin: 6px 0 0; }
 .xp-row{
   display:grid;
@@ -315,7 +303,6 @@ footer{
 .xp-role{ font-weight:600; color:var(--fg); line-height:1.35; }
 .xp-dates{ font-size:14px; color:var(--muted); }
 
-/* Stack on mobile: title above card */
 @media (max-width: 900px){
   .xp-wrap{ grid-template-columns: 1fr; }
 }
@@ -338,9 +325,7 @@ footer{
   color: #fc3d72;
 }
 
-/* ===== Interests / Extras page ===== */
-
-/* Intro band (image left, copy right) */
+/* Interests Page*/
 .extras-intro{
   max-width: 1100px;
   margin: 0 auto;
@@ -357,7 +342,7 @@ footer{
   aspect-ratio: 1 / 1;
   border-radius: 999px;
   object-fit: cover;
-  border: 6px solid rgba(0,0,0,.15);     /* soft ring like your reference */
+  border: 6px solid rgba(0,0,0,.15);
   box-shadow: 0 10px 30px rgba(0,0,0,.07);
 }
 
@@ -366,7 +351,7 @@ footer{
   margin: 0 0 12px 0;
   font-weight: 900;
   font-size: clamp(28px, 4.2vw, 42px);
-  color: #e26829;                           /* rosy heading like your ref */
+  color: #e26829;
 }
 
 /* Section headings */
@@ -378,18 +363,18 @@ footer{
 .extras-heading{
   margin: 24px 0 16px;
   font-size: clamp(22px, 3.2vw, 28px);
-  color: #e26829;                            /* sage headers */
+  color: #e26829;
   font-weight: 800;
 }
 
-/* Image grid — airy cards, keeps aspect, responsive columns */
+/* Image Gallery - Photography, painting, and food */
 .gallery{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 22px;
 }
 .tile{
-  grid-column: span 4;                       /* 3 across on desktop */
+  grid-column: span 4;
   background: #fff;
   border: 1px solid rgba(0,0,0,.08);
   border-radius: 16px;
@@ -407,19 +392,19 @@ footer{
 @media (max-width: 1000px){
   .extras-intro{ grid-template-columns: 1fr; }
   .intro-media{ order: -1; }
-  .gallery .tile{ grid-column: span 6; }     /* 2 across */
+  .gallery .tile{ grid-column: span 6; }
 }
 @media (max-width: 560px){
-  .gallery .tile{ grid-column: span 12; }    /* 1 across */
+  .gallery .tile{ grid-column: span 12; }
 }
 
 
-/* ===== Lightbox (gallery modal) ===== */
+/* Lightbox */
 .lightbox{
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.78);
-  display: none;                 /* toggled with .open */
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -469,7 +454,6 @@ footer{
 }
 .lb-close:hover{ background: rgba(0,0,0,.55); }
 
-/* Prevent page scroll when lightbox is open */
 body.lb-lock{ overflow: hidden; }
 
 

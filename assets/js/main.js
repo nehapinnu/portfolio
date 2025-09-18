@@ -1,4 +1,4 @@
-// Utility: set active nav based on path
+// set active nav based on path
 (function(){
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav a').forEach(a=>{
@@ -9,8 +9,8 @@
   });
 })();
 
-// Robust loader: try fetching projects.json; if blocked (e.g., file://),
-// fall back to inline <script type="application/json" id="projects-data">.
+// try fetching projects.json
+// fall back to inline
 async function loadProjects(){
   try{
     const res = await fetch('assets/data/projects.json', {cache:'no-store'});
@@ -27,10 +27,10 @@ async function loadProjects(){
   }
 }
 
-// Work page: render cards
+// Home page: render cards
 (async function(){
   const grid = document.getElementById('projects');
-  if(!grid) return; // not on index
+  if(!grid) return;
   try{
     const items = await loadProjects();
     const frag = document.createDocumentFragment();
@@ -42,7 +42,9 @@ async function loadProjects(){
       link.href = p.link || '#';
       const href = p.link || '#';
       link.href = href;
-      // open external links in a new tab; internal (same-origin or relative) in same tab
+
+      // open external links in a new tab
+      // internal in same tab
       const isAbsolute = /^https?:\/\//i.test(href);
       const isExternal = isAbsolute && !href.startsWith(location.origin);
       if (isExternal) {
@@ -52,6 +54,7 @@ async function loadProjects(){
         link.removeAttribute('target');
         link.removeAttribute('rel');
       }
+      
       if(p.thumb){ link.style.background = `center/cover no-repeat url('${p.thumb}')`; }
       const body = document.createElement('div');
       body.className = 'card-body';
@@ -73,7 +76,7 @@ async function loadProjects(){
   }
 })();
 
-// Smooth scroll for on-page anchors (index contact)
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
     const id = a.getAttribute('href');
@@ -81,7 +84,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// Footer year if present
+// Footer year
 const yearEl = document.getElementById('year');
 if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
 
@@ -91,7 +94,7 @@ if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
     const capEl   = document.getElementById('lb-cap');
     const closeEl = modal.querySelector('.lb-close');
 
-    // Every gallery image becomes clickable
+    // lightbox: clickable gallery on Interests page
     const imgs = document.querySelectorAll('.gallery .tile img');
 
     imgs.forEach(img => {
@@ -113,14 +116,11 @@ if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
     function closeLB() {
       modal.classList.remove('open');
       document.body.classList.remove('lb-lock');
-      // clear src to stop network/decoding if you want:
-      // imgEl.src = '';
     }
 
-    // Close interactions
+    // x button for lightbox
     closeEl.addEventListener('click', closeLB);
     modal.addEventListener('click', (e) => {
-      // only close if clicking the backdrop (not the figure/image)
       if (e.target === modal) closeLB();
     });
     document.addEventListener('keydown', (e) => {
