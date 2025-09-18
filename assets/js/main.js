@@ -40,8 +40,18 @@ async function loadProjects(){
       const link = document.createElement('a');
       link.className = 'thumb';
       link.href = p.link || '#';
-      link.target = p.link ? '_blank' : '';
-      link.rel = p.link ? 'noreferrer' : '';
+      const href = p.link || '#';
+      link.href = href;
+      // open external links in a new tab; internal (same-origin or relative) in same tab
+      const isAbsolute = /^https?:\/\//i.test(href);
+      const isExternal = isAbsolute && !href.startsWith(location.origin);
+      if (isExternal) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      } else {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
       if(p.thumb){ link.style.background = `center/cover no-repeat url('${p.thumb}')`; }
       const body = document.createElement('div');
       body.className = 'card-body';
