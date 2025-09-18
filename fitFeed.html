@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FitFeed — College Fitness App</title>
 
-  <!-- Fonts + site stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Page-specific styles (scoped to .case) -->
   <style>
     :root{
       --sage:#83a292;
-      --rose:#4f54b8;      /* FitFeed primary */
+      --rose:#4f54b8;
       --ink:#1A1A1A;
       --muted:#5a5a5a;
       --card:#fff;
@@ -25,7 +23,6 @@
     .case h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.05; margin: 18px 0 22px; }
     .case .lede { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); max-width: 860px; }
 
-    /* meta grid under title */
     .meta {
       margin: 28px 0 36px;
       padding-top: 22px;
@@ -36,8 +33,6 @@
     }
     .meta h4 { margin: 0 0 8px; font-size: 14px; color: var(--rose); letter-spacing:.2px }
     .meta p  { margin: 0; color: var(--ink) }
-
-    /* hero media */
     .hero-media {
       border-radius: 16px;
       overflow: hidden;
@@ -52,18 +47,16 @@
     .block h2 { margin: 0 0 14px; font-size: clamp(22px, 3.6vw, 28px); color: var(--rose); }
     .block p  { margin: 10px 0; }
 
-    /* callout (tuned for #4f54b8) */
     .callout {
       border: 1px solid rgba(79,84,184,.18);
-      background: #eef0fb;   /* very-light indigo */
+      background: #eef0fb;
       border-radius: 12px;
       padding: 16px 18px;
-      color: #2a2d6d;        /* deep indigo text */
+      color: #2a2d6d;
       margin: 14px 0 0;
       box-shadow: 0 2px 12px rgba(79,84,184,.08);
     }
 
-    /* two-column text + media rows */
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin: 18px 0 26px; }
     .row.reverse { grid-template-columns: 1fr 1fr; }
     .row .media-card {
@@ -75,11 +68,8 @@
     }
     .row .media-card img { display:block; width:100%; height:auto; }
 
-    /* list columns */
     .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
     .rule { height:1px; background: var(--ring); margin: 28px 0; }
-
-    /* link buttons */
     .btn-row { display:flex; gap:14px; flex-wrap: wrap; margin-top: 10px; }
     .pill {
       display:inline-flex; align-items:center; gap:10px;
@@ -89,26 +79,20 @@
       box-shadow: 0 2px 6px rgba(0,0,0,.06);
     }
     .pill .star { color: #f3b21c; }
-
-    /* takeaways */
     .takeaway { margin-top: 6px; }
     .takeaway h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
     .takeaway ul { margin: 6px 0 14px 18px; }
-
-    /* responsive */
     @media (max-width: 900px){
       .meta { grid-template-columns: 1fr 1fr; }
       .row, .row.reverse { grid-template-columns: 1fr; }
       .cols-2 { grid-template-columns: 1fr; }
     }
 
-    /* embeds */
     .media-card { max-width: 800px; margin: 0 auto 26px; border:1px solid var(--ring); border-radius:14px; overflow:hidden; background:var(--card); box-shadow: 0 6px 18px rgba(0,0,0,.05); }
     .media-card iframe, .media-card video { width:100%; aspect-ratio:16/9; height:auto; border:0; display:block; }
 
     .improve-title{ font-size: 22px; color:#4f54b8; }
 
-    /* Product Dev layout (if needed later) */
     .dev-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items:start; }
     .dev-span-2{ grid-column: 1 / -1; }
     @media (max-width:900px){ .dev-grid{ grid-template-columns:1fr; } }
@@ -119,7 +103,6 @@
   </style>
 </head>
 <body>
-  <!-- site nav -->
   <header class="nav">
     <div class="nav-inner">
       <div class="brand"><a href="index.html">Neha Pinnu</a></div>
@@ -135,7 +118,6 @@
   </header>
 
   <main class="case">
-    <!-- Title + sub-lede -->
     <h1>FitFeed: Helping College Students<br/>Plan, Discover, and Stick with Workouts</h1>
     <p class="lede">
       A concept fitness platform for students that combines a crowdsourced workout library,
@@ -145,7 +127,7 @@
         <a class="btn" href="https://www.figma.com/proto/TeFNOTxRBYo0qgothdk8Oy/493-M3?node-id=48-466&starting-point-node-id=1%3A3&t=4nlwvhXRHv0mGteA-1" download>Project</a>
     </div>
 
-    <!-- Meta grid -->
+    <!-- Project Info -->
     <section class="meta">
       <div>
         <h4>Timeline</h4>
@@ -166,7 +148,6 @@
       </div>
     </section>
 
-    <!-- Hero media -->
     <div class="hero-media">
       <video controls playsinline>
         <source src="assets/img/493_final_video.mp4" type="video/mp4">
@@ -262,22 +243,6 @@
       </p>
     </div>
   </div>
-
-    <!-- Design decisions -->
-    <!-- <section class="block">
-      <div>
-        <h2>Key Design Decisions</h2>
-        <h3>Initial Prototype Learnings</h3>
-        <p>
-          Early usability tests (think-aloud) surfaced gulfs of execution/evaluation:
-        </p>
-        <ul>
-          <li><strong>Calendar cues:</strong> users couldn’t tell which days had scheduled workouts.</li>
-          <li><strong>Completion feedback:</strong> finishing actions lacked visible confirmation.</li>
-          <li><strong>Search & “likes” clarity:</strong> search was overlooked; dumbbell icon read as “reps,” not likes.</li>
-        </ul>
-      </div> -->
-
       <div class="row reverse">
         <div class="media-card">
           <img src="assets/img/fitfeed_improve.png" alt="UI improvements mockups" />
@@ -308,13 +273,11 @@
           <p>Together, these features address variety, planning efficiency, and motivation.</p>
         </div>
         <div class="media-card">
-          <!-- keep your Figma or demo embed here if you have one -->
           <img src="assets/img/final_concept_fitfeed.png" alt="FitFeed concept frames" />
         </div>
       </div>
     </section>
 
-    <!-- Product details (lightweight, no hard tech claims since this is a concept) -->
     <section class="block">
       <h2>Product Outline</h2>
       <div class="cols-2">

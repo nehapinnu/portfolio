@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WanderHub — Mobile App</title>
 
-  <!-- Your existing site fonts + stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Page-specific styles (scoped to .case) -->
+
   <style>
     :root{
       --sage:#83a292;
@@ -25,7 +24,6 @@
     .case h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.05; margin: 18px 0 22px; }
     .case .lede { font-size: clamp(16px, 2.1vw, 20px); color: var(--muted); max-width: 860px; }
 
-    /* meta grid under title */
     .meta {
       margin: 28px 0 36px;
       padding-top: 22px;
@@ -37,7 +35,7 @@
     .meta h4 { margin: 0 0 8px; font-size: 14px; color: var(--rose); letter-spacing:.2px }
     .meta p  { margin: 0; color: var(--ink) }
 
-    /* hero media */
+
     .hero-media {
       border-radius: 16px;
       overflow: hidden;
@@ -47,12 +45,12 @@
     }
     .hero-media img, .hero-media video { display:block; width:100%; height:auto; }
 
-    /* section blocks */
+
     .block { padding: 28px 0; }
     .block h2 { margin: 0 0 14px; font-size: clamp(22px, 3.6vw, 28px); color: var(--rose); }
     .block p  { margin: 10px 0; }
 
-    /* callout */
+
     .callout {
       border: 1px solid rgba(233,117,118,.2);
       background: #fff3f1;
@@ -63,7 +61,7 @@
       box-shadow: 0 2px 12px rgba(233,117,118,.1);
     }
 
-    /* two-column text + image rows */
+
     .row {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
@@ -81,7 +79,7 @@
     }
     .row .media-card img { display:block; width:100%; height:auto; }
 
-    /* list columns */
+
     .cols-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -89,7 +87,7 @@
     }
     .rule { height:1px; background: var(--ring); margin: 28px 0; }
 
-    /* link buttons */
+
     .btn-row { display:flex; gap:14px; flex-wrap: wrap; margin-top: 10px; }
     .pill {
       display:inline-flex; align-items:center; gap:10px;
@@ -100,12 +98,12 @@
     }
     .pill .star { color: #f3b21c; }
 
-    /* takeaways */
+
     .takeaway { margin-top: 6px; }
     .takeaway h3 { margin: 0 0 8px; font-size: 18px; color: var(--ink); }
     .takeaway ul { margin: 6px 0 14px 18px; }
 
-    /* responsive */
+
     @media (max-width: 900px){
       .meta { grid-template-columns: 1fr 1fr; }
       .row, .row.reverse { grid-template-columns: 1fr; }
@@ -114,7 +112,7 @@
 
     .slide-embed {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 12px;
@@ -131,8 +129,8 @@
 }
 
 .media-card {
-  max-width: 800px;     /* keep it aligned with your text width */
-  margin: 0 auto 26px;  /* center it and add spacing below */
+  max-width: 800px;
+  margin: 0 auto 26px;
   border: 1px solid var(--ring);
   border-radius: 14px;
   overflow: hidden;
@@ -165,7 +163,7 @@
 }
 .row,
 .row.reverse{
-  grid-template-columns: 1fr 1fr; /* equal columns */
+  grid-template-columns: 1fr 1fr;
 }
 
 .improve-title{
@@ -173,21 +171,18 @@
   color:#e97576;
 }
 
-/* Product Dev layout */
+
 .dev-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* two side-by-side columns */
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
   align-items: start;
 }
-.dev-card{ /* optional: just spacing */
-  /* padding: 4px 0; */
-}
+
 .dev-span-2{
-  grid-column: 1 / -1;            /* full width row */
+  grid-column: 1 / -1;
 }
 
-/* Stack on mobile */
 @media (max-width: 900px){
   .dev-grid{ grid-template-columns: 1fr; }
 }
@@ -195,8 +190,8 @@
 .db-img {
   display: block;
   width: 100%;
-  max-width: 1000px; /* optional cap, matches your .case width */
-  margin: 28px auto; /* centers it and adds vertical spacing */
+  max-width: 1000px;
+  margin: 28px auto;
   border: 1px solid var(--ring);
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.05);
@@ -207,7 +202,7 @@
   </style>
 </head>
 <body>
-  <!-- site nav -->
+  <!-- Navigation Bar -->
   <header class="nav">
     <div class="nav-inner">
       <div class="brand"><a href="index.html">Neha Pinnu</a></div>
@@ -223,7 +218,6 @@
   </header>
 
   <main class="case">
-    <!-- Title + sub-lede -->
     <h1>WanderHub: An All-in-One Application to Meet your Travel Needs</h1>
     <p class="lede">
       A collaborative travel platform that helps travelers stay connected,
@@ -233,7 +227,6 @@
         <a class="btn" href="https://github.com/vmahtab/Swifties/wiki" download>Github</a>
     </div>
 
-    <!-- Meta grid -->
     <section class="meta">
       <div>
         <h4>Timeline</h4>
@@ -254,7 +247,6 @@
       </div>
     </section>
 
-<!-- Big hero media -->
 <div class="hero-media">
   <iframe 
     width="100%" 
@@ -266,8 +258,6 @@
     allowfullscreen>
   </iframe>
 </div>
-
-
 
     <!-- Context -->
     <section class="block">
@@ -344,7 +334,6 @@
     <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQkSfZS4dhCcs7Q2u0t5UFLqzeNG5bXQ1tAy1Jn_H-2dB68ptFBOhvcHAZWU72F0OI279toIGpZu7D_/pubembed?start=false&loop=false&delayms=60000" 
     frameborder="0" width="960" height="569" 
     allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> 
-    <!-- Design decisions (3 key moments) -->
     <section class="block">
       <div>
         <h2>Design Decisions</h2>
@@ -415,12 +404,10 @@
     </section>
 
 
-    <!-- Product Management -->
 <section class="block">
   <h2>Product Development & Deployment</h2>
 
   <div class="dev-grid">
-    <!-- Row 1: side by side -->
     <div class="dev-card">
       <h3>Third Party Tools Used</h3>
       <ul>
@@ -439,7 +426,6 @@
       </ul>
     </div>
 
-    <!-- Row 2: full width -->
     <div class="dev-card dev-span-2">
       <h3>Frontend</h3>
       <ul>
@@ -453,7 +439,6 @@
       </ul>
     </div>
 
-    <!-- Row 3: full width -->
     <div class="dev-card dev-span-2">
       <h3>Backend</h3>
       <ul>
@@ -491,8 +476,6 @@
     </div>
   </div>
 </section>
-
-    <!-- <div class="rule"></div> -->
 
     <!-- Takeaways -->
     <section class="block">
@@ -539,7 +522,6 @@
   </footer>
 
   <script>
-    // keep your footer year in sync
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   </script>
